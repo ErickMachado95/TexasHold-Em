@@ -1,19 +1,49 @@
 
 public class Card implements Comparable {
 
-	private String rank  ;
-	private int rankint ; // integer for rank 
+	private int rank  ;
 	private String suit ;
 	
+	public static void main(String[] args) {
+		
+		Deck ndeck = new Deck() ; 
+		
+		System.out.println(ndeck.getDeck()) ; 
+		
+		ndeck.shuffleDeck();
+		
+		System.out.println(ndeck.getDeck()) ; 
+		
+		
+	}
+	
+	@Override
+	public String toString() {
+		
+		switch(rank) {
+		case 1 : return 'A' + " "  + suit ; 
+		case 11 : return 'J' + " " + suit ; 
+		case 12 : return 'Q' + " " + suit ; 
+		case 13 : return 'K' + " " + suit ; 
+		default : return Integer.toString(rank) + " " + suit ; 
+			
+			
+		}
+		
+		
+	}
+	
+	public Card(int rank, String suit) {
+		this.rank = rank; 
+		this.suit = suit ; 
+		
+	}
 	
 	
-	public String getRank() {
+	public int getRank() {
 		return rank; 
 	}
 	
-	public int getRankInt() {
-		return rankint ; 
-	}
 	
 	public String getSuit() {
 		return suit ;
